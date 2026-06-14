@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 10 English Lit Revision</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --mac-ink: #1a1025;
+    --mac-purple: #4a1a6e;
+    --mac-blood: #8b1a2e;
+    --mac-gold: #c8a84b;
+    --carol-navy: #0d2240;
+    --carol-teal: #1a6b6e;
+    --carol-red: #c0392b;
+    --carol-cream: #f5f0e8;
+    --light-bg: #fafaf7;
+    --text-dark: #1a1a2e;
+    --text-mid: #444455;
+    --border: #e0ddd5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,16,37,0.97);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+    height: 56px;
+    border-bottom: 2px solid var(--mac-gold);
+  }
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--mac-gold);
+    margin-right: auto;
+    letter-spacing: 0.05em;
+  }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+  }
+  nav a:hover, nav a.active { color: #fff; border-bottom-color: var(--mac-gold); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--mac-ink) 0%, var(--mac-purple) 50%, var(--carol-navy) 100%);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mac-gold);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--mac-gold); }
+  .hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  .hero-books {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .book-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid;
+  }
+  .badge-mac { background: rgba(139,26,46,0.2); border-color: var(--mac-blood); color: #f8b4c0; }
+  .badge-carol { background: rgba(26,107,110,0.2); border-color: var(--carol-teal); color: #8de8ec; }
+
+  /* QUICK TIPS BANNER */
+  .tips-banner {
+    background: var(--mac-gold);
+    padding: 0.9rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow: hidden;
+  }
+  .tips-banner .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mac-ink);
+    white-space: nowrap;
+    background: var(--mac-ink);
+    color: var(--mac-gold);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .tips-scroll {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-tips 30s linear infinite;
+    white-space: nowrap;
+  }
+  .tips-scroll span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--mac-ink);
+  }
+  @keyframes scroll-tips {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* MAIN LAYOUT */
+  main { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+  section { margin-bottom: 4rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .section-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+  }
+  .tag-mac { background: var(--mac-blood); color: #fff; }
+  .tag-carol { background: var(--carol-teal); color: #fff; }
+  .tag-tips { background: var(--mac-gold); color: var(--mac-ink); }
+  .tag-both { background: var(--mac-purple); color: #fff; }
+
+  /* EXAM TECHNIQUE */
+  .technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .technique-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .technique-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .tc-gold::before { background: var(--mac-gold); }
+  .tc-blood::before { background: var(--mac-blood); }
+  .tc-teal::before { background: var(--carol-teal); }
+  .tc-purple::before { background: var(--mac-purple); }
+  .technique-card .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.06);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .technique-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .technique-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+  .technique-card .acronym { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--mac-gold); font-weight: 700; margin-bottom: 0.3rem; }
+
+  /* THEMES TABS */
+  .tabs-container { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .tabs-nav {
+    display: flex;
+    background: var(--mac-ink);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 0.8rem 1.3rem;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.85); }
+  .tab-btn.active { color: var(--mac-gold); border-bottom-color: var(--mac-gold); }
+  .tab-content { display: none; padding: 2rem; }
+  .tab-content.active { display: block; }
+
+  /* THEME BLOCKS */
+  .theme-intro {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .quote-card {
+    border-left: 3px solid var(--mac-gold);
+    background: #faf9f7;
+    padding: 1.25rem;
+    border-radius: 0 6px 6px 0;
+  }
+  .quote-card.carol-q { border-left-color: var(--carol-teal); }
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+  .quote-source {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mac-blood);
+    margin-bottom: 0.5rem;
+  }
+  .carol-q .quote-source { color: var(--carol-teal); }
+  .quote-analysis {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .quote-analysis strong { color: var(--text-dark); }
+
+  /* CHARACTERS */
+  .char-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+  .char-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .char-header {
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .char-header.mac-char { background: linear-gradient(135deg, var(--mac-ink), var(--mac-purple)); }
+  .char-header.carol-char { background: linear-gradient(135deg, var(--carol-navy), var(--carol-teal)); }
+  .char-initial {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .mac-char .char-initial { background: var(--mac-blood); color: #fff; }
+  .carol-char .char-initial { background: var(--carol-teal); color: #fff; }
+  .char-name { font-weight: 700; color: #fff; font-size: 1rem; }
+  .char-role { font-size: 0.75rem; color: rgba(255,255,255,0.65); }
+  .char-body { padding: 1.25rem; }
+  .char-body p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 0.75rem; }
+  .char-quote {
+    background: #faf9f7;
+    border-left: 3px solid var(--mac-gold);
+    padding: 0.75rem 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-dark);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.75rem;
+  }
+  .carol-char-q { border-left-color: var(--carol-teal) !important; }
+  .char-points { list-style: none; }
+  .char-points li {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .char-points li::before { content: '→'; position: absolute; left: 0; color: var(--mac-gold); font-size: 0.8rem; }
+  .carol-char-list li::before { color: var(--carol-teal) !important; }
+
+  /* CONTEXT */
+  .context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media(max-width: 640px) { .context-grid { grid-template-columns: 1fr; } }
+  .context-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .context-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .mac-border { border-color: var(--mac-blood); color: var(--mac-ink); }
+  .carol-border { border-color: var(--carol-teal); color: var(--carol-navy); }
+  .context-block ul { list-style: none; }
+  .context-block li {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .context-block li:last-child { border-bottom: none; }
+  .context-block li::before { content: '✦'; position: absolute; left: 0; font-size: 0.6rem; top: 0.65rem; }
+  .mac-li li::before { color: var(--mac-blood); }
+  .carol-li li::before { color: var(--carol-teal); }
+  .context-block li strong { color: var(--text-dark); }
+
+  /* QUIZ */
+  .quiz-container { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
+  .quiz-intro { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 1.5rem; }
+  .quiz-q { margin-bottom: 1.75rem; }
+  .quiz-q-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .q-num {
+    width: 26px; height: 26px;
+    background: var(--mac-purple);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; padding-left: 2.5rem; }
+  @media(max-width: 500px) { .quiz-options { grid-template-columns: 1fr; } }
+  .quiz-opt {
+    padding: 0.65rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: #faf9f7;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    transition: all 0.15s;
+    text-align: left;
+    touch-action: manipulation;
+  }
+  .quiz-opt:hover { border-color: var(--mac-purple); background: #f0edf7; }
+  .quiz-opt.correct { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+  .quiz-opt.wrong { background: #fdecea; border-color: #f44336; color: #7f0000; }
+  .quiz-opt.disabled { cursor: default; }
+  .quiz-feedback {
+    margin-top: 0.5rem;
+    padding-left: 2.5rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    display: none;
+    line-height: 1.5;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-score {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, var(--mac-ink), var(--mac-purple));
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+  }
+  .quiz-score.show { display: block; }
+  .quiz-score .score-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--mac-gold); font-weight: 900; }
+  .quiz-score p { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 0.3rem; }
+  .quiz-reset {
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--mac-gold);
+    color: var(--mac-ink);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  /* ESSAY STRUCTURE */
+  .essay-builder { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .essay-builder-header {
+    background: var(--mac-ink);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .essay-builder-header h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+  .essay-stages { padding: 1.5rem; }
+  .essay-stage {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+  .stage-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .stage-dot.intro { background: var(--mac-purple); }
+  .stage-dot.point { background: var(--mac-blood); }
+  .stage-dot.quote { background: var(--mac-gold); color: var(--mac-ink); }
+  .stage-dot.analyse { background: var(--carol-teal); }
+  .stage-dot.context { background: var(--carol-navy); }
+  .stage-dot.link { background: #555; }
+  .stage-dot.outro { background: var(--mac-ink); border: 2px solid var(--mac-gold); }
+  .stage-content h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .stage-content p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
+  .stage-example {
+    margin-top: 0.5rem;
+    background: #faf9f7;
+    border-left: 2px solid var(--mac-gold);
+    padding: 0.6rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+  }
+  .connector-line {
+    width: 2px;
+    height: 16px;
+    background: var(--border);
+    margin-left: 17px;
+    margin-bottom: -4px;
+  }
+
+  /* COMPARISON */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .compare-table th {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .compare-table th:first-child { background: #f5f2ed; color: var(--text-mid); }
+  .compare-table th:nth-child(2) { background: var(--mac-ink); color: var(--mac-gold); }
+  .compare-table th:nth-child(3) { background: var(--carol-navy); color: #8de8ec; }
+  .compare-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  .compare-table td:first-child { font-weight: 600; color: var(--text-dark); background: #faf9f7; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: #f0edf7; }
+  .compare-table tr:hover td:first-child { background: #f0edf7; }
+
+  /* FLASHCARDS */
+  .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .flashcard {
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flashcard-front {
+    background: var(--mac-ink);
+    border: 1px solid var(--mac-gold);
+  }
+  .flashcard-back {
+    background: #fff;
+    border: 1px solid var(--border);
+    transform: rotateY(180deg);
+  }
+  .flashcard-front p {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.5;
+  }
+  .flashcard-front .fc-label {
+    position: absolute;
+    top: 0.6rem; left: 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mac-gold);
+  }
+  .flashcard-front .fc-tap {
+    position: absolute;
+    bottom: 0.6rem; right: 0.75rem;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .flashcard-back p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* RESPONSIVE */
+  @media(max-width: 768px) {
+    /* NAV — scrollable pill row */
+    nav {
+      padding: 0 0.75rem;
+      height: auto;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      gap: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav .logo { font-size: 0.85rem; padding: 0.75rem 0; white-space: nowrap; margin-right: 0.5rem; }
+    nav a { padding: 0 0.65rem; font-size: 0.68rem; white-space: nowrap; height: 48px; }
+
+    /* HERO */
+    .hero { padding: 3rem 1.25rem 2.5rem; }
+    .hero h1 { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+    .hero p { font-size: 0.95rem; }
+    .book-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
+
+    /* TIPS BANNER */
+    .tips-banner { padding: 0.75rem 1rem; gap: 0.6rem; }
+    .tips-banner .label { font-size: 0.6rem; padding: 0.25rem 0.5rem; }
+
+    /* MAIN */
+    main { padding: 1.75rem 1rem 4rem; }
+    section { margin-bottom: 2.5rem; }
+    .section-header h2 { font-size: 1.4rem; }
+
+    /* TECHNIQUE GRID — single column */
+    .technique-grid { grid-template-columns: 1fr; }
+
+    /* THEMES TABS */
+    .tab-content { padding: 1.25rem; }
+    .quotes-grid { grid-template-columns: 1fr; }
+
+    /* CHARACTERS — single column */
+    .char-grid { grid-template-columns: 1fr; }
+
+    /* COMPARE TABLE — horizontal scroll */
+    .compare-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+    }
+    .compare-table { min-width: 520px; }
+
+    /* QUIZ */
+    .quiz-container { padding: 1.25rem; }
+    .quiz-options { grid-template-columns: 1fr; padding-left: 0; margin-top: 0.5rem; }
+    .quiz-q-text { flex-direction: row; }
+    .quiz-feedback { padding-left: 0; }
+
+    /* ESSAY BUILDER */
+    .essay-stages { padding: 1rem; }
+
+    /* FLASHCARDS — 2 col on mobile, 1 on very small */
+    .flashcard-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .flashcard { height: 180px; }
+    .flashcard-back p { font-size: 0.78rem; }
+  }
+
+  @media(max-width: 400px) {
+    nav .logo { display: none; }
+    .flashcard-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6rem; }
+  }
+
+  /* ACCORDION */
+  .accordion { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #fff; }
+  .accordion-item { border-bottom: 1px solid var(--border); }
+  .accordion-item:last-child { border-bottom: none; }
+  .accordion-btn {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: background 0.15s;
+    touch-action: manipulation;
+  }
+  .accordion-btn:hover { background: #faf9f7; }
+  .accordion-btn .arrow { transition: transform 0.3s; font-size: 0.8rem; color: var(--text-mid); }
+  .accordion-btn.open .arrow { transform: rotate(180deg); }
+  .accordion-body { display: none; padding: 0 1.25rem 1.25rem; }
+  .accordion-body.open { display: block; }
+  .accordion-body p, .accordion-body li { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; }
+  .accordion-body ul { list-style: disc; padding-left: 1.2rem; }
+  .accordion-body ul li { margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">📖 Lit Revision</span>
+  <a href="#technique" class="active">Technique</a>
+  <a href="#macbeth">Macbeth</a>
+  <a href="#carol">Carol</a>
+  <a href="#compare">Compare</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#flashcards">Flashcards</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">Year 10 English Literature Mock</p>
+  <h1>Ace Your <span>Literature</span> Exam</h1>
+  <p>Everything you need to smash Macbeth and A Christmas Carol — themes, quotes, analysis, and exam technique all in one place.</p>
+  <div class="hero-books">
+    <span class="book-badge badge-mac">🗡️ Macbeth — Shakespeare</span>
+    <span class="book-badge badge-carol">👻 A Christmas Carol — Dickens</span>
+  </div>
+</div>
+
+<div class="tips-banner">
+  <span class="label">Exam Tips</span>
+  <div class="tips-scroll">
+    <span>✦ Always embed quotes — don't just drop them in</span>
+    <span>✦ Comment on the writer's language choices, not just what happens</span>
+    <span>✦ Link to context: when was it written & why does that matter?</span>
+    <span>✦ Use subject terminology: metaphor, dramatic irony, foreshadowing</span>
+    <span>✦ Answer the question — check the question every paragraph</span>
+    <span>✦ Structure matters: intro, 3 paragraphs, conclusion</span>
+    <span>✦ Always embed quotes — don't just drop them in</span>
+    <span>✦ Comment on the writer's language choices, not just what happens</span>
+    <span>✦ Link to context: when was it written & why does that matter?</span>
+    <span>✦ Use subject terminology: metaphor, dramatic irony, foreshadowing</span>
+    <span>✦ Answer the question — check the question every paragraph</span>
+    <span>✦ Structure matters: intro, 3 paragraphs, conclusion</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ── EXAM TECHNIQUE ── -->
+  <section id="technique">
+    <div class="section-header">
+      <h2>Exam Technique</h2>
+      <span class="section-tag tag-tips">Must Read First</span>
+    </div>
+
+    <div class="technique-grid" style="margin-bottom:1.5rem;">
+      <div class="technique-card tc-gold">
+        <div class="step-num">01</div>
+        <div class="acronym">P.E.E.L</div>
+        <h3>Paragraph Structure</h3>
+        <p><strong>Point</strong> — make a clear argument. <strong>Evidence</strong> — embed a quote. <strong>Explain</strong> — analyse the language. <strong>Link</strong> — connect to the question or theme.</p>
+      </div>
+      <div class="technique-card tc-blood">
+        <div class="step-num">02</div>
+        <h3>Embed Your Quotes</h3>
+        <p>Don't just drop a quote — weave it into your sentence. ✗ "He is evil. 'Stars, hide your fires.'" ✓ "Macbeth's command for the stars to 'hide your fires' reveals his awareness of his own ambition's moral darkness."</p>
+      </div>
+      <div class="technique-card tc-teal">
+        <div class="step-num">03</div>
+        <h3>Writer's Craft</h3>
+        <p>Always ask: why did <em>Shakespeare</em> or <em>Dickens</em> choose this word/technique? E.g., "Dickens uses the verb 'seized' to convey the powerful grip poverty has on Scrooge's victims."</p>
+      </div>
+      <div class="technique-card tc-purple">
+        <div class="step-num">04</div>
+        <h3>Context Counts</h3>
+        <p>Drop in relevant context but keep it <em>linked to the point</em>. Mention Shakespeare's Jacobean audience, or Dickens' Victorian social reform — but always explain <em>how</em> that affects meaning.</p>
+      </div>
+    </div>
+
+    <!-- Essay Builder -->
+    <div class="essay-builder">
+      <div class="essay-builder-header">
+        <div>
+          <h3>The Perfect Essay Paragraph — Step by Step</h3>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.2rem;">Follow this structure for every body paragraph</p>
+        </div>
+      </div>
+      <div class="essay-stages">
+        <div class="essay-stage">
+          <div class="stage-dot intro">P</div>
+          <div class="stage-content">
+            <h4>Point — Make Your Argument Clear</h4>
+            <p>Start with a topic sentence that directly answers the question. Don't start with "In this paragraph…"</p>
+            <div class="stage-example">"Shakespeare presents Macbeth as a deeply ambitious man whose desire for power corrupts him entirely."</div>
+          </div>
+        </div>
+        <div class="connector-line"></div>
+        <div class="essay-stage">
+          <div class="stage-dot quote">E</div>
+          <div class="stage-content">
+            <h4>Evidence — Embed a Relevant Quote</h4>
+            <p>Choose a short, focused quote (even just a word or phrase is great!) and integrate it naturally into a sentence.</p>
+            <div class="stage-example">"This is evident when he describes himself as 'too full o' the milk of human kindness', suggesting…"</div>
+          </div>
+        </div>
+        <div class="connector-line"></div>
+        <div class="essay-stage">
+          <div class="stage-dot analyse">A</div>
+          <div class="stage-content">
+            <h4>Analyse — The Writer's Language</h4>
+            <p>Pick a specific word or technique. Ask: what does this word suggest? What is the effect on the audience? Name the technique if you can.</p>
+            <div class="stage-example">"The noun 'milk' has connotations of nurture and innocence, suggesting Lady Macbeth views her husband's compassion as a weakness to be eliminated."</div>
+          </div>
+        </div>
+        <div class="connector-line"></div>
+        <div class="essay-stage">
+          <div class="stage-dot context">C</div>
+          <div class="stage-content">
+            <h4>Context — Why Does It Matter?</h4>
+            <p>Link to the writer's time period, their intentions, or the audience's expected reaction. Keep it brief and relevant.</p>
+            <div class="stage-example">"Shakespeare's Jacobean audience would have seen ambition without loyalty to God as inherently sinful and destabilising."</div>
+          </div>
+        </div>
+        <div class="connector-line"></div>
+        <div class="essay-stage">
+          <div class="stage-dot link">L</div>
+          <div class="stage-content">
+            <h4>Link — Back to the Question</h4>
+            <p>End by circling back to the essay question. Show you haven't forgotten what you're arguing.</p>
+            <div class="stage-example">"Therefore, Shakespeare uses Macbeth to demonstrate how unchecked ambition destroys not only others, but the individual themselves."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MACBETH ── -->
+  <section id="macbeth">
+    <div class="section-header">
+      <h2>Macbeth — Themes & Quotes</h2>
+      <span class="section-tag tag-mac">Shakespeare</span>
+    </div>
+
+    <div class="tabs-container">
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'mac-ambition')">⚔️ Ambition</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-power')">👑 Power</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-guilt')">🩸 Guilt</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-supernatural')">🔮 Supernatural</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-gender')">⚖️ Gender</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-chars')">👤 Characters</button>
+        <button class="tab-btn" onclick="switchTab(this,'mac-context')">📜 Context</button>
+      </div>
+
+      <!-- AMBITION -->
+      <div class="tab-content active" id="mac-ambition">
+        <p class="theme-intro">Ambition is the central theme of Macbeth. Shakespeare presents it as a <strong>destructive force</strong> — both Macbeth and Lady Macbeth are consumed by their desire for power. The play is a warning that unbridled ambition leads to moral and physical ruin.</p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">"I have no spur / To prick the sides of my intent, but only / Vaulting ambition, which o'erleaps itself."</div>
+            <div class="quote-source">Macbeth — Act 1, Scene 7</div>
+            <div class="quote-analysis">The <strong>equestrian metaphor</strong> of "vaulting" suggests ambition that goes too far and falls. Shakespeare shows Macbeth <em>knows</em> his ambition is dangerous — creating tragic irony as he proceeds anyway. "Spur" also implies something external driving him forward.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Stars, hide your fires; / Let not light see my black and deep desires."</div>
+            <div class="quote-source">Macbeth — Act 1, Scene 4</div>
+            <div class="quote-analysis">The <strong>antithesis</strong> of light and darkness shows Macbeth's desire to conceal his true nature. The adjective "black" has connotations of evil and moral corruption. His ambition is so dark he cannot allow even the stars — symbols of God's order — to witness it.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Come, you spirits / That tend on mortal thoughts, unsex me here."</div>
+            <div class="quote-source">Lady Macbeth — Act 1, Scene 5</div>
+            <div class="quote-analysis">Lady Macbeth's ambition leads her to <strong>reject her femininity</strong> entirely. "Unsex me here" suggests she sees female qualities as obstacles to power. Dickens — no, Shakespeare — uses this to challenge gender norms and show ambition as something that corrupts natural identity.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"I am thane of Cawdor / If good, why do I yield to that suggestion / Whose horrid image doth unfix my hair."</div>
+            <div class="quote-source">Macbeth — Act 1, Scene 3</div>
+            <div class="quote-analysis">Even at this early point, the mere <strong>thought</strong> of murder physically unsettles Macbeth ("unfix my hair"). Shakespeare uses this to show ambition as a form of madness — it overrides reason and physical control. The audience see his susceptibility immediately.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POWER -->
+      <div class="tab-content" id="mac-power">
+        <p class="theme-intro">Shakespeare explores how power <strong>corrupts absolutely</strong>. Macbeth begins as a loyal, heroic thane and ends as a tyrannical king. The play suggests that illegitimate power — gained through treachery — can never be secure or fulfilling.</p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">"For brave Macbeth — well he deserves that name — / Disdaining fortune, with his brandished steel / Which smoked with bloody execution."</div>
+            <div class="quote-source">Captain — Act 1, Scene 2</div>
+            <div class="quote-analysis">Macbeth is introduced as a <strong>heroic warrior</strong> — "brave" and "bloody" in service of his king. Shakespeare deliberately establishes his original virtue so his corruption feels more dramatic and tragic. The verb "smoked" is visceral — powerful imagery of war.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Will all great Neptune's ocean wash this blood / Clean from my hand?"</div>
+            <div class="quote-source">Macbeth — Act 2, Scene 2</div>
+            <div class="quote-analysis">The <strong>classical allusion</strong> to Neptune emphasises the impossibility of undoing his crime. Power gained through murder cannot be cleaned away — it leaves permanent stains. This marks the moment Macbeth realises power has cost him his peace of mind forever.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Life's but a walking shadow, a poor player / That struts and frets his hour upon the stage."</div>
+            <div class="quote-source">Macbeth — Act 5, Scene 5</div>
+            <div class="quote-analysis">By the end, Macbeth sees power as <strong>meaningless</strong>. The <strong>theatrical metaphor</strong> ("player", "stage") reduces human life — and kingship — to performance. He has gained everything he wanted and found it hollow. Shakespeare warns that tyrannical power leads only to despair.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"To be thus is nothing, / But to be safely thus."</div>
+            <div class="quote-source">Macbeth — Act 3, Scene 1</div>
+            <div class="quote-analysis">Macbeth reveals that <strong>power without security is worthless</strong>. The word "safely" shows his kingship feels precarious. He is already planning Banquo's murder — demonstrating how one crime leads inevitably to another in the cycle of power.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUILT -->
+      <div class="tab-content" id="mac-guilt">
+        <p class="theme-intro">Guilt is depicted as a <strong>psychological force</strong> that destroys Macbeth and Lady Macbeth from within. Shakespeare uses the supernatural — visions, hallucinations — to externalise their inner guilt, showing how it corrupts the mind.</p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">"Is this a dagger which I see before me, / The handle toward my hand?"</div>
+            <div class="quote-source">Macbeth — Act 2, Scene 1</div>
+            <div class="quote-analysis">The <strong>hallucination of the dagger</strong> shows guilt manifesting before the murder even occurs. Shakespeare shows guilt as prophetic — it anticipates wrongdoing. The question form reflects Macbeth's fractured mental state. Jacobean audiences would see this as evidence of the devil's influence.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Out, damned spot! Out, I say!"</div>
+            <div class="quote-source">Lady Macbeth — Act 5, Scene 1</div>
+            <div class="quote-analysis">Lady Macbeth's sleepwalking scene shows the <strong>collapse of her mental state</strong>. "Spot" echoes Macbeth's earlier blood imagery, showing guilt has transferred to her. The imperative "out" shows her desperation — she commanded spirits earlier but cannot command her own conscience. She has lost control entirely.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Never shake / Thy gory locks at me!"</div>
+            <div class="quote-source">Macbeth — Act 3, Scene 4</div>
+            <div class="quote-analysis">Macbeth's vision of Banquo's ghost at the banquet is his <strong>guilt made visible</strong>. "Gory locks" is visceral and disturbing — Shakespeare makes the audience see exactly what Macbeth sees. His outburst in front of the lords shows guilt destroying his political image as well as his sanity.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Macbeth does murder sleep."</div>
+            <div class="quote-source">Macbeth — Act 2, Scene 2</div>
+            <div class="quote-analysis">Sleep represents innocence and peace. By <strong>personifying sleep</strong> as something that can be murdered, Shakespeare suggests guilt destroys rest — and with it, Macbeth's conscience. The third person ("Macbeth does murder") is interesting: he seems to separate himself from his own actions.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPERNATURAL -->
+      <div class="tab-content" id="mac-supernatural">
+        <p class="theme-intro">The supernatural was a genuine belief for Shakespeare's Jacobean audience — King James I was fascinated by witchcraft and had written a book on it, <em>Daemonologie</em>. Shakespeare uses the supernatural to explore fate vs free will, and the corrupting power of evil prophecy.</p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">"Fair is foul, and foul is fair."</div>
+            <div class="quote-source">The Witches — Act 1, Scene 1</div>
+            <div class="quote-analysis">The opening line is a <strong>paradox</strong> that sets the tone of the whole play — nothing is as it seems. The <strong>chiasmus</strong> (reversed structure) creates a sense of disorder. It signals to the audience that appearances will be deceptive throughout. Shakespeare creates immediate moral confusion.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"All hail, Macbeth, that shalt be king hereafter!"</div>
+            <div class="quote-source">Witches — Act 1, Scene 3</div>
+            <div class="quote-analysis">The <strong>prophecy</strong> plants the seed of Macbeth's ambition. Shakespeare is ambiguous — do the witches cause events, or simply predict them? The word "hereafter" implies inevitability, yet Macbeth still chooses to act. This is central to the fate vs free will debate.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Double, double toil and trouble; / Fire burn and cauldron bubble."</div>
+            <div class="quote-source">Witches — Act 4, Scene 1</div>
+            <div class="quote-analysis">The <strong>rhyming couplets</strong> give the witches a sing-song, ritual quality — making them sound both magical and menacing. "Double" suggests deception and duality. Shakespeare's Jacobean audience would have recognised this as genuinely dangerous — not theatrical entertainment, but real evil.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"There's daggers in men's smiles."</div>
+            <div class="quote-source">Donalbain — Act 2, Scene 3</div>
+            <div class="quote-analysis">This <strong>metaphor</strong> captures the supernatural world's effect on the human one — no one can be trusted. The smiling face hiding a dagger reflects the witches' "fair is foul" warning. Shakespeare shows how supernatural influence poisons even ordinary human interaction.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GENDER -->
+      <div class="tab-content" id="mac-gender">
+        <p class="theme-intro">Shakespeare subverts gender expectations of his era. Lady Macbeth wields significant power, challenging the Jacobean ideal of a submissive wife. Meanwhile, Macbeth's masculinity is repeatedly questioned — showing how ideas of gender and power are intertwined.</p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">"Was the hope drunk / Wherein you dressed yourself?"</div>
+            <div class="quote-source">Lady Macbeth — Act 1, Scene 7</div>
+            <div class="quote-analysis">Lady Macbeth <strong>emasculates Macbeth</strong> to manipulate him. By comparing his hope to drunkenness, she calls his masculinity into question. This was a radical portrayal for a Jacobean audience — a wife directly challenging and controlling her husband was shocking and transgressive.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"When you durst do it, then you were a man."</div>
+            <div class="quote-source">Lady Macbeth — Act 1, Scene 7</div>
+            <div class="quote-analysis">Lady Macbeth ties <strong>masculinity to violence</strong>. She argues that committing murder = being a "real man." This is darkly ironic — Shakespeare is critiquing a society where masculine identity is bound to aggression. It also shows how Lady Macbeth manipulates Macbeth's insecurities.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Come, thick night, / And pall thee in the dunnest smoke of hell."</div>
+            <div class="quote-source">Lady Macbeth — Act 1, Scene 5</div>
+            <div class="quote-analysis">Lady Macbeth invokes darkness and hell — <strong>traditionally masculine and demonic imagery</strong>. Shakespeare shows that power requires her to adopt what Jacobean society considered "masculine" traits: ruthlessness, darkness, ambition without moral restraint. Her femininity is depicted as an obstacle.</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"I dare do all that may become a man; / Who dares do more is none."</div>
+            <div class="quote-source">Macbeth — Act 1, Scene 7</div>
+            <div class="quote-analysis">Macbeth initially pushes back — he argues there are <strong>limits to masculine courage</strong>. This is actually the more nuanced, moral position. Shakespeare shows Macbeth briefly resisting the toxic definition of masculinity Lady Macbeth imposes — making his eventual surrender to it all the more tragic.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHARACTERS -->
+      <div class="tab-content" id="mac-chars">
+        <div class="char-grid">
+          <div class="char-card">
+            <div class="char-header mac-char">
+              <div class="char-initial">M</div>
+              <div><div class="char-name">Macbeth</div><div class="char-role">Tragic Hero → Tyrant</div></div>
+            </div>
+            <div class="char-body">
+              <p>Macbeth is the classic tragic hero — great qualities destroyed by a fatal flaw (ambition). His journey from loyal warrior to paranoid tyrant is the heart of the play.</p>
+              <div class="char-quote">"I am in blood / Stepped in so far that, should I wade no more, / Returning were as tedious as go o'er."</div>
+              <ul class="char-points">
+                <li>Starts as brave and loyal ("brave Macbeth")</li>
+                <li>Has a conscience — his guilt hallucinations show this</li>
+                <li>Manipulated by Lady Macbeth and the witches</li>
+                <li>Ends isolated, nihilistic, and defeated</li>
+              </ul>
+            </div>
+          </div>
+          <div class="char-card">
+            <div class="char-header mac-char">
+              <div class="char-initial">LM</div>
+              <div><div class="char-name">Lady Macbeth</div><div class="char-role">Manipulator → Broken</div></div>
+            </div>
+            <div class="char-body">
+              <p>More ambitious than her husband initially, Lady Macbeth drives the murder. But she is ultimately destroyed by guilt, showing Shakespeare's moral order is restored.</p>
+              <div class="char-quote">"Out, damned spot! Out, I say!"</div>
+              <ul class="char-points">
+                <li>Rejects femininity to gain power ("unsex me here")</li>
+                <li>Controls Macbeth through manipulation and shame</li>
+                <li>Collapses mentally while Macbeth becomes numb</li>
+                <li>Her suicide off-stage is deliberately understated</li>
+              </ul>
+            </div>
+          </div>
+          <div class="char-card">
+            <div class="char-header mac-char">
+              <div class="char-initial">W</div>
+              <div><div class="char-name">The Witches</div><div class="char-role">Agents of Chaos</div></div>
+            </div>
+            <div class="char-body">
+              <p>The witches represent the supernatural evil that tempts Macbeth, but Shakespeare leaves it ambiguous whether they cause events or merely predict them.</p>
+              <div class="char-quote">"Fair is foul, and foul is fair."</div>
+              <ul class="char-points">
+                <li>Open the play — immediately establishes moral disorder</li>
+                <li>Their prophecies are self-fulfilling: they spark Macbeth's ambition</li>
+                <li>James I was obsessed with witchcraft — very political</li>
+                <li>Represent fate, temptation, and supernatural disorder</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTEXT -->
+      <div class="tab-content" id="mac-context">
+        <div class="context-grid">
+          <div class="context-block">
+            <h3 class="mac-border">📅 When & Why Shakespeare Wrote It</h3>
+            <ul class="mac-li">
+              <li><strong>Written c. 1606</strong> for King James I — the new Scottish king</li>
+              <li>James I was fascinated by witchcraft — wrote <em>Daemonologie</em></li>
+              <li>The play flatters James: Banquo was his ancestor, the real witches' prophecies foretell James' lineage</li>
+              <li>The Gunpowder Plot (1605) made treachery a hot political topic — Macbeth's regicide was a direct parallel</li>
+              <li>Shakespeare explores <strong>the divine right of kings</strong> — killing a king was a crime against God</li>
+            </ul>
+          </div>
+          <div class="context-block">
+            <h3 class="mac-border">🎭 Key Ideas to Link to Context</h3>
+            <ul class="mac-li">
+              <li>Jacobean society believed in <strong>witchcraft as real</strong> — not just a plot device</li>
+              <li>The <strong>Great Chain of Being</strong>: God's natural order with the king at the top — Macbeth disrupts this</li>
+              <li>Masculinity in Jacobean England was tied to <strong>honour and courage in battle</strong></li>
+              <li>Women had little power — Lady Macbeth's dominance was transgressive and shocking</li>
+              <li>Scotland setting adds distance — allowed Shakespeare to explore dangerous political themes safely</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A CHRISTMAS CAROL ── -->
+  <section id="carol">
+    <div class="section-header">
+      <h2>A Christmas Carol — Themes & Quotes</h2>
+      <span class="section-tag tag-carol">Dickens</span>
+    </div>
+
+    <div class="tabs-container">
+      <div class="tabs-nav" style="background: var(--carol-navy);">
+        <button class="tab-btn active" onclick="switchTab(this,'acc-redemption')" style="--active: #8de8ec;">👻 Redemption</button>
+        <button class="tab-btn" onclick="switchTab(this,'acc-poverty')" style="--active: #8de8ec;">💰 Poverty</button>
+        <button class="tab-btn" onclick="switchTab(this,'acc-greed')" style="--active: #8de8ec;">⚖️ Greed</button>
+        <button class="tab-btn" onclick="switchTab(this,'acc-christmas')" style="--active: #8de8ec;">🎄 Christmas</button>
+        <button class="tab-btn" onclick="switchTab(this,'acc-chars')" style="--active: #8de8ec;">👤 Characters</button>
+        <button class="tab-btn" onclick="switchTab(this,'acc-context')" style="--active: #8de8ec;">📜 Context</button>
+      </div>
+
+      <!-- REDEMPTION -->
+      <div class="tab-content active" id="acc-redemption">
+        <p class="theme-intro">Redemption is the central message of <em>A Christmas Carol</em>. Dickens argues that no one is beyond salvation — Scrooge's transformation is meant to give hope to Victorian society that the wealthy can change and choose compassion over greed.</p>
+        <div class="quotes-grid">
+          <div class="quote-card carol-q">
+            <div class="quote-text">"I will honour Christmas in my heart, and try to keep it all the year."</div>
+            <div class="quote-source">Scrooge — Stave 5</div>
+            <div class="quote-analysis">Scrooge's promise is the climax of his redemption arc. The verb "honour" suggests active, committed respect — not passive acknowledgement. <strong>Dickens uses Christmas</strong> as a symbol of generosity and humanity. Keeping it "all the year" shows Scrooge's change is permanent, not seasonal.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Scrooge was better than his word. He did it all, and infinitely more."</div>
+            <div class="quote-source">Narrator — Stave 5</div>
+            <div class="quote-analysis">The adverb <strong>"infinitely"</strong> emphasises that Scrooge's redemption exceeds what was necessary. Dickens uses the narrator to directly celebrate the transformation, inviting the reader to feel joy. The short, punchy sentence structure mimics Scrooge's decisive, energetic new character.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"A solitary child, neglected by his friends, is left there still."</div>
+            <div class="quote-source">Narrator — Stave 2</div>
+            <div class="quote-analysis">The Ghost of Christmas Past reveals <strong>Scrooge as a lonely, neglected child</strong>. Dickens creates sympathy for him — his greed is explained (though not excused) by his painful past. The adjective "solitary" foreshadows his adult isolation. This moment is key to understanding his capacity for change.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"You may be an undigested bit of beef, a blot of mustard, a crumb of cheese."</div>
+            <div class="quote-source">Scrooge — Stave 1</div>
+            <div class="quote-analysis">Early Scrooge uses <strong>rational, materialist language</strong> to deny the supernatural. The food imagery is deliberately prosaic — Scrooge reduces everything to the physical and tangible. Dickens uses this to show how Scrooge has killed his imagination and capacity for wonder — both essential for redemption.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POVERTY -->
+      <div class="tab-content" id="acc-poverty">
+        <p class="theme-intro">Dickens uses <em>A Christmas Carol</em> as a fierce critique of Victorian attitudes to poverty. He presents the poor as human, deserving of compassion — and attacks the rich who use systems like the Poor Law to avoid helping them.</p>
+        <div class="quotes-grid">
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Are there no prisons? And the union workhouses, are they still in operation?"</div>
+            <div class="quote-source">Scrooge — Stave 1</div>
+            <div class="quote-analysis">Scrooge <strong>echoes the language of the 1834 Poor Law</strong> — the very system Dickens despised. The workhouses were brutal institutions where the poor were treated as criminals. Dickens satirises middle-class attitudes by putting these callous words in Scrooge's mouth — the villain of the story.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"This boy is Ignorance. This girl is Want. Beware them both."</div>
+            <div class="quote-source">Ghost of Christmas Present — Stave 3</div>
+            <div class="quote-analysis">Dickens <strong>personifies poverty's effects as children</strong> — the most innocent and vulnerable. The names "Ignorance" and "Want" are allegorical. Ignorance (lack of education) is identified as the greater danger — it breeds crime and social unrest. This is Dickens making a direct political argument.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"If they would rather die, they had better do it, and decrease the surplus population."</div>
+            <div class="quote-source">Scrooge — Stave 1</div>
+            <div class="quote-analysis">Scrooge's use of <strong>"surplus population"</strong> — a term from Malthusian economics — reveals how the Victorian establishment dehumanised the poor. Dickens is horrified by this language. When the Ghost quotes it back to Scrooge (Stave 3), it forces Scrooge to confront his cruelty — a pivotal moment of shame.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Bob Cratchit… tried to warm himself at the candle; in which effort, not being a man of a strong imagination, he failed."</div>
+            <div class="quote-source">Narrator — Stave 1</div>
+            <div class="quote-analysis">The <strong>gentle irony</strong> here is devastating — Bob cannot even afford heat. Dickens contrasts Bob's dignity and warmth of character with the physical cold forced on him by Scrooge's miserliness. The detail of the single candle is a vivid, specific image that makes the poverty concrete and real.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GREED -->
+      <div class="tab-content" id="acc-greed">
+        <p class="theme-intro">Dickens presents greed as a <strong>spiritual disease</strong> — it isolates the individual and makes them less than human. Scrooge and Jacob Marley represent what happens when money becomes the sole purpose of life.</p>
+        <div class="quotes-grid">
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Oh! But he was a tight-fisted hand at the grindstone, Scrooge! a squeezing, wrenching, grasping, scraping, clutching, covetous old sinner!"</div>
+            <div class="quote-source">Narrator — Stave 1</div>
+            <div class="quote-analysis">Dickens uses a <strong>list of violent verbs</strong> to convey Scrooge's greed as an aggressive, active force. The accumulation ("squeezing, wrenching, grasping…") overwhelms the reader, mirroring how greed overwhelms Scrooge's humanity. The exclamation marks create a voice of moral outrage — Dickens speaking to us directly.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"I wear the chain I forged in life… I made it link by link, and yard by yard."</div>
+            <div class="quote-source">Marley's Ghost — Stave 1</div>
+            <div class="quote-analysis">Marley's chain is a <strong>powerful metaphor</strong> for the consequences of greed. Each link represents a selfish act. The verbs "forged" and "made" emphasise Marley's — and by extension Scrooge's — personal responsibility. Dickens warns: greed is not just financially costly, but spiritually damning.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"He carried his own low temperature always about with him."</div>
+            <div class="quote-source">Narrator — Stave 1</div>
+            <div class="quote-analysis">Dickens uses <strong>cold as a metaphor for emotional isolation</strong>. Scrooge's greed has frozen his human warmth. The word "always" suggests permanence — or at least, Scrooge thinks so. The physical world reflecting inner character is a key technique Dickens uses throughout the novella.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Solitary as an oyster."</div>
+            <div class="quote-source">Narrator — Stave 1</div>
+            <div class="quote-analysis">The <strong>simile of the oyster</strong> is brilliantly chosen — an oyster seals itself shut for protection, but inside may have something valuable (a pearl). Dickens suggests Scrooge's isolation is both self-protective and self-imprisoning. There's something good inside him, hidden by hard-shelled greed.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHRISTMAS -->
+      <div class="tab-content" id="acc-christmas">
+        <p class="theme-intro">Christmas represents <strong>generosity, community, and shared humanity</strong> for Dickens. He was writing at a time when Christmas traditions were being revived — and he used the novella to champion a vision of Christmas as a time for social responsibility, not just individual celebration.</p>
+        <div class="quotes-grid">
+          <div class="quote-card carol-q">
+            <div class="quote-text">"Bah! Humbug!"</div>
+            <div class="quote-source">Scrooge — Stave 1</div>
+            <div class="quote-analysis">Scrooge's infamous dismissal of Christmas is more than rudeness — it's a <strong>rejection of communal values</strong>. "Humbug" means nonsense or deception — Scrooge sees Christmas generosity as false. His two-word exclamation becomes a symbol of Victorian selfishness that Dickens sets out to destroy across the novella.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"There is nothing in the world so irresistibly contagious as laughter and good humour."</div>
+            <div class="quote-source">Narrator — Stave 3</div>
+            <div class="quote-analysis">The <strong>word "contagious"</strong> frames Christmas joy as something that spreads naturally — the opposite of Scrooge's isolated coldness. Dickens argues that Christmas spirit is a communal, infectious force. By choosing a medical term, he frames joy as essential to health — both individual and societal.</div>
+          </div>
+          <div class="quote-card carol-q">
+            <div class="quote-text">"God bless us, every one!"</div>
+            <div class="quote-source">Tiny Tim — Stave 3</div>
+            <div class="quote-analysis">Tiny Tim's famous line encapsulates Dickens' message — <strong>universal compassion</strong>. "Every one" is crucial: Tim does not exclude Scrooge or anyone else from his blessing. Dickens places this sentiment in his most vulnerable character to make it morally irresistible. This is the human cost Scrooge's greed ignores.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAROL CHARACTERS -->
+      <div class="tab-content" id="acc-chars">
+        <div class="char-grid">
+          <div class="char-card">
+            <div class="char-header carol-char">
+              <div class="char-initial">S</div>
+              <div><div class="char-name">Ebenezer Scrooge</div><div class="char-role">Miser → Redeemed</div></div>
+            </div>
+            <div class="char-body">
+              <p>Scrooge is the protagonist and Dickens' central vehicle for social criticism. His transformation is the novella's argument: that greed is a choice, and change is always possible.</p>
+              <div class="char-quote carol-char-q">"Solitary as an oyster."</div>
+              <ul class="char-points carol-char-list">
+                <li>His name was so memorable it became a word meaning miser</li>
+                <li>Dickens gives him a sympathetic backstory — childhood loneliness, lost love (Belle)</li>
+                <li>His change must be believable — hence the three-ghost journey</li>
+                <li>Represents the Victorian ruling class and their potential for change</li>
+              </ul>
+            </div>
+          </div>
+          <div class="char-card">
+            <div class="char-header carol-char">
+              <div class="char-initial">TT</div>
+              <div><div class="char-name">Tiny Tim</div><div class="char-role">Symbol of the Poor</div></div>
+            </div>
+            <div class="char-body">
+              <p>Tiny Tim is a symbolic character — the innocent victim of social injustice. His potential death represents what the Poor Laws actually do to vulnerable people.</p>
+              <div class="char-quote carol-char-q">"God bless us, every one!"</div>
+              <ul class="char-points carol-char-list">
+                <li>Cheerful and forgiving despite poverty — challenges the idea that the poor deserve their fate</li>
+                <li>His disability and vulnerability maximise reader sympathy</li>
+                <li>The vision of his empty chair forces Scrooge to confront consequences</li>
+                <li>His survival at the end = proof of Scrooge's (and society's) redemption</li>
+              </ul>
+            </div>
+          </div>
+          <div class="char-card">
+            <div class="char-header carol-char">
+              <div class="char-initial">G</div>
+              <div><div class="char-name">The Three Ghosts</div><div class="char-role">Agents of Change</div></div>
+            </div>
+            <div class="char-body">
+              <p>The ghosts function structurally and symbolically — each forces Scrooge to see a different dimension of his choices and their consequences.</p>
+              <div class="char-quote carol-char-q">"I am the Ghost of Christmas Yet to Come."</div>
+              <ul class="char-points carol-char-list">
+                <li><strong>Christmas Past:</strong> explains Scrooge — his loneliness and choices</li>
+                <li><strong>Christmas Present:</strong> shows the impact on others (Cratchits, Fred)</li>
+                <li><strong>Christmas Yet to Come:</strong> silent, frightening — most effective agent of change</li>
+                <li>Together they represent memory, empathy, and consequence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAROL CONTEXT -->
+      <div class="tab-content" id="acc-context">
+        <div class="context-grid">
+          <div class="context-block">
+            <h3 class="carol-border">📅 When & Why Dickens Wrote It</h3>
+            <ul class="carol-li">
+              <li><strong>Published 1843</strong> — during the height of the Industrial Revolution</li>
+              <li>Dickens worked in a <strong>blacking factory as a child</strong> — personal experience of poverty</li>
+              <li>He had just visited the Ragged Schools — charities educating the very poor — and was horrified</li>
+              <li>The <strong>1834 Poor Law</strong> made the workhouse the only option for the destitute — Dickens attacked this system directly</li>
+              <li>He wrote the novella in just six weeks — his urgency is palpable in the text</li>
+            </ul>
+          </div>
+          <div class="context-block">
+            <h3 class="carol-border">🎩 Victorian Society to Mention</h3>
+            <ul class="carol-li">
+              <li><strong>Child poverty</strong> was rampant — children worked in mines and factories legally</li>
+              <li>Malthus argued the poor were "surplus population" — Scrooge quotes this to echo the actual rhetoric</li>
+              <li>Christmas traditions (tree, cards, carols) were being revived partly thanks to Queen Victoria and Prince Albert</li>
+              <li>The <strong>laissez-faire</strong> economic attitude: the rich believed poverty was the poor's own fault</li>
+              <li>Dickens wanted wealthy readers to feel shame and take responsibility — the novella was intended as a call to action</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARE ── -->
+  <section id="compare">
+    <div class="section-header">
+      <h2>Comparing the Texts</h2>
+      <span class="section-tag tag-both">Both Texts</span>
+    </div>
+    <p style="font-size:0.9rem;color:var(--text-mid);margin-bottom:1.25rem;line-height:1.6;">If your exam asks you to compare, use this table. Always use connectives: <strong>similarly, however, whereas, in contrast, both writers…, unlike Macbeth, Dickens…</strong></p>
+
+    <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Theme / Feature</th>
+          <th>🗡️ Macbeth</th>
+          <th>👻 A Christmas Carol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attitude to Greed/Ambition</td>
+          <td>Ambition is destructive — leads to murder and ruin. There is no redemption for Macbeth.</td>
+          <td>Greed can be overcome — Scrooge's redemption is the central message of hope.</td>
+        </tr>
+        <tr>
+          <td>Supernatural</td>
+          <td>Witches and ghosts (Banquo) are menacing, corrupting forces that lead to death.</td>
+          <td>Ghosts are agents of positive change — they educate and redeem rather than corrupt.</td>
+        </tr>
+        <tr>
+          <td>The Role of Society</td>
+          <td>Set in the world of the court and battle — power operates through violence and hierarchy.</td>
+          <td>Set in commercial Victorian London — power operates through wealth and economics.</td>
+        </tr>
+        <tr>
+          <td>Guilt</td>
+          <td>Guilt destroys both Macbeth and Lady Macbeth — it is unresolved and lethal.</td>
+          <td>Guilt (via the ghosts) is the catalyst for positive change and redemption.</td>
+        </tr>
+        <tr>
+          <td>Writers' Purpose</td>
+          <td>Shakespeare warns of the dangers of ambition and the disorder that comes from breaking natural/divine law.</td>
+          <td>Dickens challenges the wealthy to take responsibility for poverty and reform their behaviour.</td>
+        </tr>
+        <tr>
+          <td>Endings</td>
+          <td>Tragic — Macbeth is killed. Order is restored, but at great cost. No redemption.</td>
+          <td>Comic/Optimistic — Scrooge is fully redeemed. Tiny Tim survives. Society is healed.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div><!-- /.compare-table-wrap -->
+  </section>
+
+  <!-- ── QUIZ ── -->
+  <section id="quiz">
+    <div class="section-header">
+      <h2>Test Yourself</h2>
+      <span class="section-tag tag-tips">Interactive Quiz</span>
+    </div>
+    <div class="quiz-container">
+      <p class="quiz-intro">10 questions covering both texts. Click an answer to reveal the explanation. Your score appears at the end — be honest!</p>
+
+      <div id="quiz-questions">
+        <!-- Q1 -->
+        <div class="quiz-q" data-answer="B">
+          <div class="quiz-q-text"><span class="q-num">1</span> In Macbeth, what does "Fair is foul, and foul is fair" primarily establish?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','B')">A) The beauty of the natural world</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','B')">B) A world where appearances deceive and moral order is inverted</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','B')">C) That the witches are good characters</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','B')">D) Macbeth's bravery in battle</button>
+          </div>
+          <div class="quiz-feedback">✅ This paradox sets the entire tone of Macbeth — nothing is as it seems. It's a chiasmus (reversed structure) that creates moral chaos from the opening line. Mention it as a structural choice by Shakespeare.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-q" data-answer="C">
+          <div class="quiz-q-text"><span class="q-num">2</span> What does "Out, damned spot!" reveal about Lady Macbeth?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','C')">A) She is angry at a servant</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','C')">B) She has become queen</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','C')">C) Her guilt has destroyed her mental state</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','C')">D) She is cleaning the castle</button>
+          </div>
+          <div class="quiz-feedback">✅ The sleepwalking scene in Act 5 shows Lady Macbeth's total psychological collapse. The imaginary "spot" is blood she cannot wash away — her guilt made physical. The imperative "out" contrasts with her earlier, commanding voice — she has lost all control.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-q" data-answer="D">
+          <div class="quiz-q-text"><span class="q-num">3</span> In A Christmas Carol, what does Marley's chain symbolise?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','D')">A) His strength as a businessman</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','D')">B) The chains of friendship binding him to Scrooge</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','D')">C) Victorian industry and manufacturing</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','D')">D) The spiritual consequences of a greedy, selfish life</button>
+          </div>
+          <div class="quiz-feedback">✅ Marley's chain is made of "cashboxes, keys, padlocks" — the tools of his trade in life, now his eternal burden in death. Dickens uses it as a powerful metaphor: greed forges its own punishment. Each link = a selfish act.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-q" data-answer="A">
+          <div class="quiz-q-text"><span class="q-num">4</span> Why did Shakespeare include witchcraft so prominently in Macbeth?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','A')">A) King James I was obsessed with witchcraft and wrote a book on it — it was a direct compliment</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','A')">B) Witches were popular entertainment at the Globe Theatre</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','A')">C) Shakespeare personally believed in witchcraft</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','A')">D) He was inspired by a real witch trial he witnessed</button>
+          </div>
+          <div class="quiz-feedback">✅ Great context to use! James I wrote <em>Daemonologie</em> (1597) and was fascinated by witch trials. Macbeth was performed for the King — including a genealogy traced to Banquo (James's ancestor). Shakespeare is flattering his royal patron while exploring real fears.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-q" data-answer="B">
+          <div class="quiz-q-text"><span class="q-num">5</span> What do "Ignorance" and "Want" represent in A Christmas Carol?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','B')">A) Two of Scrooge's employees</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','B')">B) The effects of poverty on children — Dickens' allegory for social problems</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','B')">C) Two of the Cratchit children's names</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','B')">D) Names for the two workhouses Dickens visited</button>
+          </div>
+          <div class="quiz-feedback">✅ These allegorical children, hidden beneath the Ghost of Christmas Present's robes, represent what poverty does to children. "Ignorance" is the most dangerous — lack of education breeds crime. It's Dickens making a direct political argument through the supernatural.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-q" data-answer="C">
+          <div class="quiz-q-text"><span class="q-num">6</span> What literary technique is used in "squeezing, wrenching, grasping, scraping, clutching"?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','C')">A) Oxymoron</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','C')">B) Personification</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','C')">C) List / Accumulation of verbs (syndeton)</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','C')">D) Metaphor</button>
+          </div>
+          <div class="quiz-feedback">✅ The list of violent verbs (accumulation) overwhelms the reader — mirroring how greed overwhelms Scrooge's humanity. Dickens' choice of active, aggressive verbs presents greed as something Scrooge does to others, not just a passive state of being.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-q" data-answer="D">
+          <div class="quiz-q-text"><span class="q-num">7</span> In Macbeth, what does "vaulting ambition, which o'erleaps itself" suggest?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','D')">A) Macbeth is proud of his ambition</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','D')">B) The witches have made Macbeth overconfident</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','D')">C) Lady Macbeth pushes him too far</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','D')">D) Macbeth knows his ambition is excessive and will lead to his downfall</button>
+          </div>
+          <div class="quiz-feedback">✅ This is a crucial moment — Macbeth shows tragic self-awareness. The horse-riding metaphor ("vaulting", "o'erleaps") suggests ambition that goes beyond what's needed and crashes. He knows — and does it anyway. That's what makes him tragic rather than simply villainous.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-q" data-answer="A">
+          <div class="quiz-q-text"><span class="q-num">8</span> What is the key difference in how ghosts function in the two texts?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','A')">A) In Macbeth they are menacing and destructive; in Carol they guide and redeem</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','A')">B) Macbeth's ghosts are friendly while Carol's are frightening</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','A')">C) Ghosts only appear in A Christmas Carol</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','A')">D) Both texts use ghosts in the same way</button>
+          </div>
+          <div class="quiz-feedback">✅ A great comparison point! In Macbeth: Banquo's ghost drives Macbeth to paranoia and collapse. The witches corrupt him. In Carol: the ghosts show Scrooge truth and give him the chance to change. The same device, used for completely opposite purposes by two writers.</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-q" data-answer="B">
+          <div class="quiz-q-text"><span class="q-num">9</span> What does the simile "solitary as an oyster" suggest about Scrooge?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','B')">A) He is cold and slimy</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','B')">B) He has sealed himself shut from the world, but there may be value hidden within him</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','B')">C) He lives near the sea</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','B')">D) He is difficult to talk to</button>
+          </div>
+          <div class="quiz-feedback">✅ The oyster is a brilliant choice — it seals shut for protection, but may contain a pearl. Dickens hints at Scrooge's hidden humanity early on, setting up the redemption arc. It also suggests his isolation is a choice (oysters close themselves), not something imposed on him.</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-q" data-answer="C">
+          <div class="quiz-q-text"><span class="q-num">10</span> Which key piece of context is relevant to A Christmas Carol?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="answerQ(this,'A','C')">A) The English Civil War of the 1640s</button>
+            <button class="quiz-opt" onclick="answerQ(this,'B','C')">B) The Great Fire of London (1666)</button>
+            <button class="quiz-opt" onclick="answerQ(this,'C','C')">C) The 1834 Poor Law and industrial-era child poverty</button>
+            <button class="quiz-opt" onclick="answerQ(this,'D','C')">D) World War One trench conditions</button>
+          </div>
+          <div class="quiz-feedback">✅ Dickens published in 1843, in the heart of Victorian industrial Britain. The 1834 Poor Law made workhouses the only support for the destitute — deliberately harsh to "discourage" poverty. Dickens was personally horrified, having worked in a blacking factory as a child. The novella was his protest.</div>
+        </div>
+      </div>
+
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-num" id="score-display">0/10</div>
+        <p id="score-msg">Keep revising and try again!</p>
+        <br>
+        <button class="quiz-reset" onclick="resetQuiz()">Try Again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLASHCARDS ── -->
+  <section id="flashcards">
+    <div class="section-header">
+      <h2>Quote Flashcards</h2>
+      <span class="section-tag tag-both">Tap to Flip</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:1.25rem;">Tap each card to reveal what the quote means and what to say about it in an exam.</p>
+    <div class="flashcard-grid">
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">Macbeth</span><p>"Vaulting ambition, which o'erleaps itself."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Macbeth compares his ambition to a horse that jumps too high and falls. He <strong>knows</strong> his ambition is dangerous but proceeds anyway — this is the essence of his tragic flaw. Use: equestrian metaphor, self-awareness, tragic hero.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">Macbeth</span><p>"Fair is foul, and foul is fair."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Chiasmus (reversed structure) creates moral inversion from line 1. Appearances deceive throughout the play. Relevant to: supernatural, deception, the breakdown of natural order. Link: Jacobean belief that evil disguises itself as good.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">Macbeth</span><p>"Out, damned spot! Out, I say!"</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Lady Macbeth's mental collapse. The imperative "out" shows her desperation — she who commanded spirits now cannot command her own mind. Blood = guilt. Use: sleepwalking, psychological disintegration, guilt theme, dramatic irony.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">Macbeth</span><p>"Life's but a walking shadow."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Macbeth's nihilistic conclusion. The theatrical metaphor ("shadow", "player", "stage") reduces human existence — including his kingship — to meaningless performance. Use: nihilism, the cost of ambition, power as hollow, tragic end of the arc.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">A Christmas Carol</span><p>"I wear the chain I forged in life."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Marley's chain = spiritual consequences of greed. The verb "forged" implies active creation — Marley (and Scrooge) chose their selfish path. Each link = a selfish act. Use: metaphor, greed, warning to Scrooge, Victorian attitude to moral responsibility.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">A Christmas Carol</span><p>"God bless us, every one!"</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Tiny Tim's line = Dickens' central message: universal compassion. "Every one" includes even Scrooge — Tim has no bitterness. Placing this in the most vulnerable character makes it morally powerful. Use: redemption, poverty, Christmas spirit, social responsibility.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">A Christmas Carol</span><p>"Solitary as an oyster."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Brilliant simile — an oyster seals itself shut, but may contain a pearl. Dickens hints at Scrooge's hidden humanity from the start. Also: isolation as a choice (oysters close themselves). Use: greed, isolation, foreshadowing the redemption arc.</p></div>
+        </div>
+      </div>
+
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front"><span class="fc-label">A Christmas Carol</span><p>"This boy is Ignorance. This girl is Want."</p><span class="fc-tap">tap to analyse →</span></div>
+          <div class="flashcard-back"><p>Allegory — Dickens personifies the effects of poverty as children. "Ignorance" is most dangerous ("Beware him most"). Use: poverty, social reform, Dickens' political purpose, Victorian child poverty, 1834 Poor Law context.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FINAL TIPS ── -->
+  <section>
+    <div class="section-header">
+      <h2>Day-of-Exam Checklist</h2>
+      <span class="section-tag tag-tips">Final Reminders</span>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">📝 Before you start writing… <span class="arrow">▼</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li>Read the question <strong>twice</strong>. Underline the key word (e.g. "ambition", "power", "guilt").</li>
+            <li>Spend 3–4 minutes planning: jot 3 points, one per paragraph, with a quote for each.</li>
+            <li>Decide whether you'll compare, or focus on one text.</li>
+            <li>Write your argument (what you think) in one sentence before you start — keep checking back to it.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">✍️ In every paragraph… <span class="arrow">▼</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li>Start with a clear <strong>point</strong> that directly answers the question.</li>
+            <li><strong>Embed</strong> your quote — don't just drop it in.</li>
+            <li>Pick one specific word and analyse it: what does it suggest? What technique is it? What's the effect?</li>
+            <li>Link to context: "A Jacobean audience would have…" or "Dickens, writing in 1843, wanted to…"</li>
+            <li>End by linking back to the question.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">🚫 Things to avoid… <span class="arrow">▼</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li>Don't just retell the story — that's narrative, not analysis.</li>
+            <li>Don't write "The writer uses a metaphor to make it more interesting." — <em>what</em> does it show?</li>
+            <li>Don't use a massive quote when a short phrase or even a single word will do.</li>
+            <li>Don't forget the writer. It's not "Macbeth shows us ambition is bad" — it's "Shakespeare presents ambition as…"</li>
+            <li>Don't spend too long on the introduction — examiners want analysis, not a summary.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">🏆 High-mark phrases to use… <span class="arrow">▼</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li>"Shakespeare/Dickens <strong>presents</strong> X as…" — shows you're writing about the author's craft</li>
+            <li>"The <strong>connotations</strong> of the word '___' suggest…"</li>
+            <li>"This would <strong>resonate</strong> with a Jacobean/Victorian audience because…"</li>
+            <li>"The <strong>juxtaposition</strong> of X and Y highlights…"</li>
+            <li>"This can be interpreted as…" — shows you can offer multiple readings</li>
+            <li>"Furthermore…" / "However, it could be argued…" — shows developed thinking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // NAV ACTIVE STATE
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  // TABS
+  function switchTab(btn, contentId) {
+    const container = btn.closest('.tabs-container');
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(contentId).classList.add('active');
+  }
+
+  // QUIZ
+  let score = 0;
+  let answered = 0;
+  const total = 10;
+
+  function answerQ(btn, chosen, correct) {
+    const questionEl = btn.closest('.quiz-q');
+    if (questionEl.querySelector('.correct') || questionEl.querySelector('.wrong')) return;
+
+    const allOpts = questionEl.querySelectorAll('.quiz-opt');
+    allOpts.forEach(opt => opt.classList.add('disabled'));
+
+    const feedback = questionEl.querySelector('.quiz-feedback');
+    feedback.classList.add('show');
+
+    if (chosen === correct) {
+      btn.classList.add('correct');
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      allOpts.forEach(opt => {
+        const text = opt.textContent.trim();
+        if (text.startsWith(correct + ')')) opt.classList.add('correct');
+      });
+    }
+
+    answered++;
+    if (answered === total) {
+      const scoreEl = document.getElementById('quiz-score');
+      scoreEl.classList.add('show');
+      document.getElementById('score-display').textContent = score + '/' + total;
+      let msg = '';
+      if (score === 10) msg = 'Perfect score! You are absolutely ready. 🎉';
+      else if (score >= 8) msg = 'Excellent work — just review the ones you missed.';
+      else if (score >= 6) msg = 'Good effort! Re-read the themes you found tricky.';
+      else if (score >= 4) msg = 'Keep revising — focus on the quotes and context sections.';
+      else msg = 'No worries — go back through the themes and try again. You\'ve got this!';
+      document.getElementById('score-msg').textContent = msg;
+      scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.querySelectorAll('.quiz-opt').forEach(opt => {
+      opt.classList.remove('correct', 'wrong', 'disabled');
+    });
+    document.querySelectorAll('.quiz-feedback').forEach(f => f.classList.remove('show'));
+    document.getElementById('quiz-score').classList.remove('show');
+    document.getElementById('quiz-questions').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ACCORDION
+  function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('open'));
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  // SMOOTH NAV SCROLL
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
